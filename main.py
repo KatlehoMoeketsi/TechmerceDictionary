@@ -14,6 +14,25 @@ import requests
 import tkinter as tk
 from tkinter import messagebox
 
+def get_definition():
+    word = entry.get()
+    if not word:
+        messagebox.showerror("Error", "Please enter a word")
+        return
+
+    url = f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
+
+    try:
+        response = requests.get(url)
+        data = response.json()
+
+        if isinstance(data, list):
+            print(data)
+        else:
+            result_label.config(text="Word not found")
+
+    except requests.exceptions.RequestException as e:
+        messagebox.showerror("Error", f"Failed to fetch definition: {e}")
 
 
 
