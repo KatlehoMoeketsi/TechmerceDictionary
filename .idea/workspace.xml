@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6db5325c-d6c6-4689-a754-52aa9bef7b28" name="Changes" comment="Set up get_definition(). First testing to see what data returns before parsing it.">
+    <list default="true" id="6db5325c-d6c6-4689-a754-52aa9bef7b28" name="Changes" comment="Successfully able to get dictionary definitions, with minimal error handling in place">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -76,12 +76,21 @@
       <option name="project" value="LOCAL" />
       <updated>1738926934985</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Successfully able to get dictionary definitions, with minimal error handling in place">
+      <option name="closed" value="true" />
+      <created>1738927593470</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1738927593470</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Imported needed packages and also defined the main window using tkinter." />
     <MESSAGE value="Set up get_definition(). First testing to see what data returns before parsing it." />
-    <option name="LAST_COMMIT_MESSAGE" value="Set up get_definition(). First testing to see what data returns before parsing it." />
+    <MESSAGE value="Successfully able to get dictionary definitions, with minimal error handling in place" />
+    <option name="LAST_COMMIT_MESSAGE" value="Successfully able to get dictionary definitions, with minimal error handling in place" />
   </component>
 </project>
