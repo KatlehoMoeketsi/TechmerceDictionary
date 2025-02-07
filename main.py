@@ -27,7 +27,9 @@ def get_definition():
         data = response.json()
 
         if isinstance(data, list):
-            print(data)
+            meaning = data[0]['meanings'][0]['definitions'][0]['definition']
+            # print(meaning)
+            result_label.config(text=f"Definition: {meaning}")
         else:
             result_label.config(text="Word not found")
 
@@ -38,6 +40,7 @@ def get_definition():
 
 root = tk.Tk()
 root.title('TechmerceDictionary')
+
 
 #UI elements
 tk.Label(root, text="Enter a Word:"). pack(pady=5)
