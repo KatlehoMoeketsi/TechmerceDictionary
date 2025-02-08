@@ -4,10 +4,13 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
 from kivy.uix.label import Label
 import requests
+import sqlite3
 
 class DictionaryApp(App):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        self.conn = sqlite3.connect('word_history.db')
+        self.create_table()
         self.result_label = None
         self.search_button = None
         self.word_input = None
@@ -51,3 +54,14 @@ class DictionaryApp(App):
 
         except requests.exceptions.RequestException as e:
             self.result_label.text = f"Error: {e}"
+
+    def create_table(self):
+        cursor = self.conn.cursor()
+        cursor.execute('''
+                CREATE TABLE IF NOT EXISTS history (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    word TEXT UNIQUE
+                )
+            ''')
+        self.conn.commit()
+

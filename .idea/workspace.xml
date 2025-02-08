@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6db5325c-d6c6-4689-a754-52aa9bef7b28" name="Changes" comment="Added part of speech to the definition">
+    <list default="true" id="6db5325c-d6c6-4689-a754-52aa9bef7b28" name="Changes" comment="Added Kivy basic layout">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,21 +22,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "KatlehoMoeketsi"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;KatlehoMoeketsi&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/KatlehoMoeketsi/TechmerceDictionary",
-    "accountId": "fb739b4e-87d2-4444-9cbc-9f3372144902"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/KatlehoMoeketsi/TechmerceDictionary&quot;,
+    &quot;accountId&quot;: &quot;fb739b4e-87d2-4444-9cbc-9f3372144902&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2si51074fOhaDZibvTpgrfgnwWC" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -48,6 +47,7 @@
   "keyToString": {
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
@@ -137,7 +137,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738928257788</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added Kivy basic layout">
+      <option name="closed" value="true" />
+      <created>1738946315357</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1738946315357</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -145,6 +153,7 @@
     <MESSAGE value="Set up get_definition(). First testing to see what data returns before parsing it." />
     <MESSAGE value="Successfully able to get dictionary definitions, with minimal error handling in place" />
     <MESSAGE value="Added part of speech to the definition" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added part of speech to the definition" />
+    <MESSAGE value="Added Kivy basic layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Kivy basic layout" />
   </component>
 </project>
