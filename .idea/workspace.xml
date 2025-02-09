@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6db5325c-d6c6-4689-a754-52aa9bef7b28" name="Changes" comment="Added Kivy basic layout">
+    <list default="true" id="6db5325c-d6c6-4689-a754-52aa9bef7b28" name="Changes" comment="Adding history function:&#10;Built sqlite3 database for word history">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dictionary.py" beforeDir="false" afterPath="$PROJECT_DIR$/dictionary.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +146,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738946315357</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Adding history function:&#10;Built sqlite3 database for word history">
+      <option name="closed" value="true" />
+      <created>1739013814962</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1739013814962</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -154,6 +163,7 @@
     <MESSAGE value="Successfully able to get dictionary definitions, with minimal error handling in place" />
     <MESSAGE value="Added part of speech to the definition" />
     <MESSAGE value="Added Kivy basic layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Kivy basic layout" />
+    <MESSAGE value="Adding history function:&#10;Built sqlite3 database for word history" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding history function:&#10;Built sqlite3 database for word history" />
   </component>
 </project>
