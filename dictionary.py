@@ -19,53 +19,68 @@ import sqlite3
 class DictionaryApp(App):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        self.search_container = None
+        self.history_heading = None
         self.quote_label = None
         self.history_list = None
-        self.conn = sqlite3.connect('word_history.db')
-        self.create_table()
+
         self.result_label = None
         self.search_button = None
         self.word_input = None
         self.layout = None
         self.history_spinner = None
+        self.conn = sqlite3.connect('word_history.db')
+        self.create_table()
 
     def build(self):
         self.layout = BoxLayout(orientation='vertical', padding=5, spacing=10)
         print("History of words:", self.get_word_history())
 
-        #Quote code
-        #
+        #TOP SECTION - QUOTE
         quotebuild = get_inspirational_quote()
-        self.quote_label = Label(text=quotebuild, size=(1, 0.2), halign="center", valign="middle")
+        self.quote_label = Label(text=quotebuild, size_hint_y=0.3, halign="center", valign="middle")
         self.quote_label.bind(size=self.quote_label.setter('text_size'))
         self.layout.add_widget(self.quote_label)
 
-        self.word_input = TextInput(hint_text="Enter a word", size_hint=(1, 0.1), halign="center")
-        self.layout.add_widget(self.word_input)
 
-
+        #MIDDLE SECTION - MAIN
+        self.search_container = BoxLayout(
+            orientation="vertical",
+            size_hint = (None,None),
+            size=(300, 120),
+            pos_hint={"center_x": 0.5}
+        )
+        #User Input build
+        self.word_input = TextInput(hint_text="Enter a word", size_hint=(1, None),height=50,halign="center")
         #Button build
-        self.search_button = Button(text="Search", size_hint=(1, 0.1), font_size=20)
+        self.search_button = Button(text="Search", size_hint=(1, None), height=50)
         self.search_button.bind(on_press=self.fetch_definition)
-        self.layout.add_widget(self.search_button)
 
+        #adding to MAIN SECTION
+        self.search_container.add_widget(self.word_input)
+        self.search_container.add_widget(self.search_button)
+        self.layout.add_widget(self.search_container)
+
+
+        #BOTTOM SECTION - HISTORY
         #word History List
-        self.history_list = HistoryList(self, size_hint=(1,0.4))
+        self.history_heading=Label(text="History", bold=True,size_hint_y=0.1,size_hint=(None,None), halign="left",font_size=16, height=20)
+        self.history_list = HistoryList(self, size_hint_y=0.5)
+        self.layout.add_widget(self.history_heading)
         self.layout.add_widget(self.history_list)
 
         #Label Build
-        self.result_label = Label(text="", size_hint=(1, 0.3), halign="left", valign="top")
+        self.result_label = Label(text="", size_hint=(1, 0.3), halign="left", valign="top",padding=(20,))
         self.result_label.bind(size=self.result_label.setter('text_size'))
         self.layout.add_widget(self.result_label)
 
         #Load word history on startup
         self.history_list.update_history(self.get_word_history())
-
         return self.layout
 
     #Fetching dictionary term from API
     def fetch_definition(self, instance):
-        word = self.word_input.text.strip()
+        word = self.word_input.text.strip().title()
         if not word:
             msg = ""
             self.show_popup(msg)

@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6db5325c-d6c6-4689-a754-52aa9bef7b28" name="Changes" comment="Adding history function:&#10;Built sqlite3 database for word history">
+    <list default="true" id="6db5325c-d6c6-4689-a754-52aa9bef7b28" name="Changes" comment="History Function fixed.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dictionary.py" beforeDir="false" afterPath="$PROJECT_DIR$/dictionary.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/word_history.db" beforeDir="false" afterPath="$PROJECT_DIR$/word_history.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +155,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739013814962</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="History Function fixed.">
+      <option name="closed" value="true" />
+      <created>1739098434649</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1739098434649</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -164,6 +173,7 @@
     <MESSAGE value="Added part of speech to the definition" />
     <MESSAGE value="Added Kivy basic layout" />
     <MESSAGE value="Adding history function:&#10;Built sqlite3 database for word history" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding history function:&#10;Built sqlite3 database for word history" />
+    <MESSAGE value="History Function fixed." />
+    <option name="LAST_COMMIT_MESSAGE" value="History Function fixed." />
   </component>
 </project>
