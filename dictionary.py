@@ -5,20 +5,41 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
 from kivy.uix.label import Label
-from kivy.uix.spinner import Spinner
+from kivymd.app import MDApp
+from kivymd.theming import ThemeManager
 
-
+from kivymd.uix.dialog import MDDialog
+from kivymd.uix.button import MDFlatButton
 from historylist import HistoryList
-from kivy.uix.popup import Popup
+
+
+import os
+
+if os.name =='nt':
+    db_dir = os.path.join(os.getenv('APPDATA'), "Dictionary")
+else: #Linux & Mac OS
+    db_dir = os.path.expanduser("~/dictionary")
+
+if not os.path.exists(db_dir):
+    # Ensure the directory exists
+    os.makedirs(db_dir)
+
+#Set the database file path
+db_dir = os.path.join(db_dir, 'word_history.db')
+
+
 import requests
 import sqlite3
 
 
 
 
-class DictionaryApp(App):
+class DictionaryApp(MDApp):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        self.theme_cls.theme_style = "Dark"
+        self.theme_cls.primary_palette = "BlueGray"
+        self.dialog = None
         self.search_container = None
         self.history_heading = None
         self.quote_label = None
@@ -29,7 +50,7 @@ class DictionaryApp(App):
         self.word_input = None
         self.layout = None
         self.history_spinner = None
-        self.conn = sqlite3.connect('word_history.db')
+        self.conn = sqlite3.connect(db_dir)
         self.create_table()
 
     def build(self):
@@ -82,8 +103,9 @@ class DictionaryApp(App):
     def fetch_definition(self, instance):
         word = self.word_input.text.strip().title()
         if not word:
-            msg = ""
-            self.show_popup(msg)
+            msg = "Please enter valid information"
+            title = "Oops!"
+            self.show_popup(title,msg)
             return
 
         url = f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
@@ -113,12 +135,13 @@ class DictionaryApp(App):
                 )
             ''')
         self.conn.commit()
+
+
     #Word History Management
     #1. Gets the word history from the database
     def get_word_history(self):
         cursor = self.conn.cursor()
         cursor.execute('SELECT word FROM history ORDER BY id DESC LIMIT 100')
-
         return [row[0] for row in cursor.fetchall()]
 
     #2. Add words from the logic
@@ -134,20 +157,16 @@ class DictionaryApp(App):
         self.word_input.text = word
         self.fetch_definition(None)
 
-    @staticmethod
-    def show_popup(instance):
-        content = BoxLayout(orientation="vertical", size_hint_y=None)
-        label = Label(text="Please enter text, and try again", text_size=(None, None), size_hint_x=1, halign='center')
-        label.bind(texture_size=label.setter('size'))
-        close_button = Button(text="Close", size_hint_y=None, height=40)
-        content.add_widget(label)
-        content.add_widget(close_button)
 
-        popup = Popup(title="Error", content=content,auto_dismiss=False)
-
-        close_button.bind(on_press=popup.dismiss)
-        content.bind(minimum_size=content.setter('size'))
-        popup.open()
+    def show_popup(self, title,message):
+        self.dialog = MDDialog(
+            title=title,
+            text = message,
+            buttons=[
+                MDFlatButton(text="OK", on_release=lambda x: self.dialog.dismiss())
+            ]
+        )
+        self.dialog.open()
 
 def get_inspirational_quote():
    try:
